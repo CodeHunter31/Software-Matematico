@@ -1,0 +1,104 @@
+import math
+
+def menu():
+    print("\nCalculadora Científica")
+    print("Escolha uma opção:")
+    print("1. Somar")
+    print("2. Subtrair")
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("5. Potência")
+    print("6. Raiz Quadrada")
+    print("7. Seno")
+    print("8. Cosseno")
+    print("9. Tangente")
+    print("10. Logaritmo")
+    print("11. Exponencial")
+    print("12. Sair")
+
+def somar(x, y):
+    return x + y
+
+def subtrair(x, y):
+    return x - y
+
+def multiplicar(x, y):
+    return x * y
+
+def dividir(x, y):
+    if y == 0:
+        return "Erro! Divisão por zero."
+    else:
+        return x / y
+
+def potencia(x, y):
+    return x ** y
+
+def raiz_quadrada(x):
+    if x < 0:
+        return "Erro! Raiz quadrada de número negativo."
+    else:
+        return math.sqrt(x)
+
+def seno(x):
+    return math.sin(math.radians(x))
+
+def cosseno(x):
+    return math.cos(math.radians(x))
+
+def tangente(x):
+    return math.tan(math.radians(x))
+
+def logaritmo(x, base=10):
+    if x <= 0:
+        return "Erro! Logaritmo de número não positivo."
+    return math.log(x, base)
+
+def exponencial(x):
+    return math.exp(x)
+
+def calculadora():
+    while True:
+        menu()
+        opcao = input("Escolha uma operação (1-12): ")
+        
+        if opcao == '12':
+            print("Saindo da calculadora...")
+            break
+        
+        elif opcao in ['1', '2', '3', '4', '5']:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+            
+            if opcao == '1':
+                print(f"Resultado: {somar(num1, num2)}")
+            elif opcao == '2':
+                print(f"Resultado: {subtrair(num1, num2)}")
+            elif opcao == '3':
+                print(f"Resultado: {multiplicar(num1, num2)}")
+            elif opcao == '4':
+                print(f"Resultado: {dividir(num1, num2)}")
+            elif opcao == '5':
+                print(f"Resultado: {potencia(num1, num2)}")
+        
+        elif opcao in ['6', '7', '8', '9', '10', '11']:
+            num1 = float(input("Digite o número: "))
+            
+            if opcao == '6':
+                print(f"Resultado: {raiz_quadrada(num1)}")
+            elif opcao == '7':
+                print(f"Resultado: {seno(num1)}")
+            elif opcao == '8':
+                print(f"Resultado: {cosseno(num1)}")
+            elif opcao == '9':
+                print(f"Resultado: {tangente(num1)}")
+            elif opcao == '10':
+                base = float(input("Digite a base do logaritmo (padrão é 10): ") or 10)
+                print(f"Resultado: {logaritmo(num1, base)}")
+            elif opcao == '11':
+                print(f"Resultado: {exponencial(num1)}")
+        else:
+            print("Opção inválida. Tente novamente.")
+
+# Rodando a calculadora
+calculadora()
